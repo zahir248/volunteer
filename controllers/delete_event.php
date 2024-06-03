@@ -1,6 +1,6 @@
 <?php
 // Include necessary files
-require_once '../model/config.php';
+require_once '../models/config.php';
 require_once '../session/session.php';
 
 // Ensure the user is logged in

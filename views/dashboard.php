@@ -1,6 +1,6 @@
 <?php
 require_once '../session/session.php';
-require_once '../model/config.php'; // Include the configuration file
+require_once '../models/config.php'; // Include the configuration file
 check_login();
 
 // Fetch user data based on user_id from session

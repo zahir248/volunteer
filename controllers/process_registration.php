@@ -1,5 +1,5 @@
 <?php
-require_once '../model/config.php'; // Include the configuration file
+require_once '../models/config.php'; // Include the configuration file
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

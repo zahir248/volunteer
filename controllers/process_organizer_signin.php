@@ -1,5 +1,5 @@
 <?php
-require_once '../model/config.php';
+require_once '../models/config.php';
 require_once '../session/session.php';
 
 // Check if the form is submitted
