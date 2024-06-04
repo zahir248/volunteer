@@ -63,7 +63,7 @@ $fullname = $userData['fullname'];
         <div style="margin-top: 20px; margin-bottom: 20px;"> <!-- Add margin-top to create space -->
             <a href="upcoming_events.php">View Upcoming Events</a>
             <a href="messages.php">View Messages</a>
-            <a href="profile.php">View Profile</a>
+            <a href="profile_volunteer.php">View Profile</a>
             <a href="#" onclick="logout()">Logout</a>
         </div>
     </div>

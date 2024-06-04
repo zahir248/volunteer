@@ -22,18 +22,39 @@ function getUserData($user_id) {
     $conn = db_connect();
 
     // Fetch user data
-    $stmt = $conn->prepare("SELECT fullname, email FROM user WHERE user_id = ?");
+    $stmt = $conn->prepare("SELECT username, fullname, email, password, user_type, organization_name, organization_description, phone_number, address, city, state, country, postal_code, interest FROM user WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
-    $stmt->bind_result($fullname, $email);
+    $stmt->bind_result($username, $fullname, $email, $password, $user_type, $organization_name, $organization_description, $phone_number, $address, $city, $state, $country, $postal_code, $interest);
     $stmt->fetch();
     $stmt->close();
     $conn->close();
 
     // Return user data as an array
     return [
+        'username' => $username,
         'fullname' => $fullname,
-        'email' => $email
+        'email' => $email,
+        'password' => $password,
+        'user_type' => $user_type,
+        'organization_name' => $organization_name,
+        'organization_description' => $organization_description,
+        'phone_number' => $phone_number,
+        'address' => $address,
+        'city' => $city,
+        'state' => $state,
+        'country' => $country,
+        'postal_code' => $postal_code,
+        'interest' => $interest
     ];
+}
+
+function updateUserData($user_id, $username, $fullname, $email, $password, $user_type, $organization_name, $organization_description, $phone_number, $address, $city, $state, $country, $postal_code, $interest) {
+    $conn = db_connect();
+    $stmt = $conn->prepare("UPDATE user SET username = ?, fullname = ?, email = ?, password = ?, user_type = ?, organization_name = ?, organization_description = ?, phone_number = ?, address = ?, city = ?, state = ?, country = ?, postal_code = ?, interest = ? WHERE user_id = ?");
+    $stmt->bind_param("ssssssssssssssi", $username, $fullname, $email, $password, $user_type, $organization_name, $organization_description, $phone_number, $address, $city, $state, $country, $postal_code, $interest, $user_id);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
 }
 ?>
