@@ -13,7 +13,7 @@ $userData = getUserData($user_id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Profile | Organizer</title>
     <style>
         body {
             background-image: url('../images/profileorga.jpg'); /* Add the path to your image */
@@ -53,9 +53,18 @@ $userData = getUserData($user_id);
             text-decoration: none;
             margin: 10px;
             padding: 10px 20px;
-            border: 1px solid white; /* Add border for better visibility */
             border-radius: 5px;
             display: inline-block;
+        }
+
+        .profile-container a.edit {
+            background-color: #28a745; /* Set background color to green */
+            border: 1px solid #28a745; /* Set border color to green */
+        }
+
+        .profile-container a.dashboard {
+            background-color: #007BFF; /* Set background color to blue */
+            border: 1px solid #007BFF; /* Set border color to blue */
         }
 
         .profile-container a:hover {
@@ -83,8 +92,8 @@ $userData = getUserData($user_id);
         <p><strong>Postal Code:</strong> <?php echo $userData['postal_code']; ?></p>
         <p><strong>Interest:</strong> <?php echo $userData['interest']; ?></p>
 
-        <a href="edit_profile.php">Edit Profile</a>
-        <a href="organizer_dashboard.php">Back to Dashboard</a>
+        <a href="organizer_dashboard.php" class="dashboard">Back to Dashboard</a>
+        <a href="edit_profile.php" class="edit">Edit Profile</a>
     </div>
 </body>
 </html>

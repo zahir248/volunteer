@@ -123,6 +123,29 @@ $result = $conn->query($sql);
             background-color: #218838;
         }
 
+        .message-button {
+            background-color: #ffc107; /* Yellow */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .message-button:hover {
+            background-color: #e0a800;
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        /* Adjust the margin between buttons if necessary */
+        .join-button {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
     </style>
 </head>
 <body>
@@ -159,7 +182,12 @@ $result = $conn->query($sql);
                                 <td>{$row['event_category']}</td>
                                 <td>{$row['creation_date']}</td>
                                 <td>{$row['organization_name']}</td>
-                                <td><button class='join-button' onclick='confirmJoin({$row['event_id']})'>Join</button></td>
+                                <td>
+                                    <div class='button-container'>
+                                        <button class='join-button' onclick='confirmJoin({$row['event_id']})'>Join</button>
+                                        <button class='message-button' onclick='sendMessage({$row['event_id']})'>Community</button>
+                                    </div>
+                                </td>
                               </tr>";
                     }
                 } else {
@@ -171,11 +199,15 @@ $result = $conn->query($sql);
     
     <script>
         function confirmJoin(eventId) {
-    if (confirm("Are you sure you want to join this event?")) {
-        window.location.href = "../controllers/join_event.php?event_id=" + eventId;
-    }
-}
+            if (confirm("Are you sure you want to join this event?"))
+            {
+                window.location.href = "../controllers/join_event.php?event_id=" + eventId;
+            }
+        }
 
+        function sendMessage(eventId) {
+            window.location.href = "../views/message_organizer.php?event_id=" + eventId;
+        }
     </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ $fullname = $userData['fullname'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard | Volunteer</title>
     <style>
         body {
             background-image: url('../images/dashboard.jpg'); /* Add the path to your image */
@@ -44,17 +44,30 @@ $fullname = $userData['fullname'];
         }
 
         .content a {
-            color: white; /* Set link color to white */
+            color: white; /* Set text color to white */
+            background-color: #007BFF; /* Set background color to blue */
             text-decoration: none;
             margin: 10px;
             padding: 10px 20px;
-            border: 1px solid white; /* Add border for better visibility */
+            border: 1px solid #007BFF; /* Set border color to blue */
             border-radius: 5px;
         }
 
         .content a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+            background-color: #0056b3; /* Darker shade of blue on hover */
         }
+
+       /* Style for logout button */
+       .content a.logout {
+            background-color: #dc3545; /* Set background color to red */
+            border-color: #dc3545; /* Set border color to red */
+        }
+
+        .content a.logout:hover {
+            background-color: #c82333; /* Darker shade of red on hover */
+        }
+
+        
     </style>
 </head>
 <body>
@@ -62,9 +75,8 @@ $fullname = $userData['fullname'];
         <h1>Welcome Volunteer, <?php echo $fullname; ?></h1>
         <div style="margin-top: 20px; margin-bottom: 20px;"> <!-- Add margin-top to create space -->
             <a href="upcoming_events.php">View Upcoming Events</a>
-            <a href="messages.php">View Messages</a>
             <a href="profile_volunteer.php">View Profile</a>
-            <a href="#" onclick="logout()">Logout</a>
+            <a href="#" onclick="logout()" class="logout">Logout</a>
         </div>
     </div>
 

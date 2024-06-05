@@ -13,7 +13,7 @@ $userData = getUserData($user_id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Profile | Volunteer</title>
     <style>
         body {
             background-image: url('../images/profileorga.jpg'); /* Add the path to your image */
@@ -49,17 +49,30 @@ $userData = getUserData($user_id);
         }
 
         .profile-container a {
-            color: white; /* Set link color to white */
             text-decoration: none;
             margin: 10px;
             padding: 10px 20px;
-            border: 1px solid white; /* Add border for better visibility */
+            border: 0px solid white; /* Add border for better visibility */
             border-radius: 5px;
             display: inline-block;
         }
 
-        .profile-container a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+        .profile-container a[href="edit_profile_volunteer.php"] {
+            background-color: #4CAF50; /* Green color for the Edit Profile link */
+            color: white;
+        }
+
+        .profile-container a[href="edit_profile_volunteer.php"]:hover {
+            background-color: #45a049;
+        }
+
+        .profile-container a[href="dashboard.php"] {
+            background-color: #007BFF; /* Blue color for the Back to Dashboard link */
+            color: white;
+        }
+
+        .profile-container a[href="dashboard.php"]:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -83,8 +96,8 @@ $userData = getUserData($user_id);
         <p><strong>Postal Code:</strong> <?php echo $userData['postal_code']; ?></p>
         <p><strong>Interest:</strong> <?php echo $userData['interest']; ?></p>
 
-        <a href="edit_profile_volunteer.php">Edit Profile</a>
         <a href="dashboard.php">Back to Dashboard</a>
+        <a href="edit_profile_volunteer.php">Edit Profile</a>
     </div>
 </body>
 </html>
