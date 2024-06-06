@@ -75,6 +75,7 @@ $fullname = $userData['fullname'];
         <h1>Welcome Volunteer, <?php echo $fullname; ?></h1>
         <div style="margin-top: 20px; margin-bottom: 20px;"> <!-- Add margin-top to create space -->
             <a href="upcoming_events.php">View Upcoming Events</a>
+            <a href="joined_events.php">View Joined Events</a> <!-- New button for joined events -->
             <a href="profile_volunteer.php">View Profile</a>
             <a href="#" onclick="logout()" class="logout">Logout</a>
         </div>
