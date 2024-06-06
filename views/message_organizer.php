@@ -51,13 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
 }
 
-// Fetch messages between the user and the organizer for the specific event
-// Fetch messages related to the event_id
+// Fetch messages between the user and the organizer for the specific event and order them by timestamp in descending order
 $sql = "SELECT m.message_content, m.timestamp, u.username AS sender_username 
         FROM message m
         JOIN user u ON m.sender_id = u.user_id
         WHERE m.event_id = ?
-        ORDER BY m.timestamp";
+        ORDER BY m.timestamp DESC"; // Order by timestamp in descending order
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $event_id);
 $stmt->execute();

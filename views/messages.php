@@ -14,17 +14,18 @@ $user_id = $_SESSION['user_id'];
 // Create connection
 $conn = db_connect();
 
-// Fetch messages for the user
+// Fetch messages for the user and order them by timestamp in descending order
 $sql = "SELECT m.message_id, m.message_content, m.timestamp, u.username AS sender_username, e.title
         FROM message m
         JOIN user u ON m.sender_id = u.user_id
         JOIN event e ON m.event_id = e.event_id
         WHERE m.receiver_id = ?
-        ORDER BY m.timestamp";
+        ORDER BY m.timestamp DESC"; // Order by timestamp in descending order
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $messages_result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -158,7 +159,7 @@ $messages_result = $stmt->get_result();
     <div style="text-align: center; margin-top: 20px;">
         <a href="../views/organizer_dashboard.php" style="text-decoration: none; color: #007bff;">
             <button style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
-                <span>&#8592;</span> Back to Organizer Dashboard
+                <span>&#8592;</span> Back to Dashboard
             </button>
         </a>
     </div>

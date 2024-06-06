@@ -96,8 +96,8 @@ $userData = getUserData($user_id);
         <p><strong>Postal Code:</strong> <?php echo $userData['postal_code']; ?></p>
         <p><strong>Interest:</strong> <?php echo $userData['interest']; ?></p>
 
-        <a href="dashboard.php">Back to Dashboard</a>
         <a href="edit_profile_volunteer.php">Edit Profile</a>
+        <a href="dashboard.php">Back to Dashboard</a>
     </div>
 </body>
 </html>

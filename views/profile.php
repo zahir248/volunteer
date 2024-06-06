@@ -16,27 +16,27 @@ $userData = getUserData($user_id);
     <title>Profile | Organizer</title>
     <style>
         body {
-            background-image: url('../images/profileorga.jpg'); /* Add the path to your image */
+            background-image: url('../images/profileorga.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh; /* Set the height to fill the viewport */
-            margin: 0; /* Remove default margin */
+            height: 100vh;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            color: white; /* Set text color to white for better contrast */
-            font-family: Arial, sans-serif; /* Set font family */
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
         .profile-container {
-            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 80%; /* Adjust width to fit content */
-            max-width: 600px; /* Max width for larger screens */
+            width: 80%;
+            max-width: 600px;
         }
 
         .profile-container h1 {
@@ -49,7 +49,7 @@ $userData = getUserData($user_id);
         }
 
         .profile-container a {
-            color: white; /* Set link color to white */
+            color: var(--button-color, white);
             text-decoration: none;
             margin: 10px;
             padding: 10px 20px;
@@ -58,17 +58,27 @@ $userData = getUserData($user_id);
         }
 
         .profile-container a.edit {
-            background-color: #28a745; /* Set background color to green */
-            border: 1px solid #28a745; /* Set border color to green */
+            background-color: var(--edit-color, #28a745);
+            border: 1px solid var(--edit-color, #28a745);
         }
 
         .profile-container a.dashboard {
-            background-color: #007BFF; /* Set background color to blue */
-            border: 1px solid #007BFF; /* Set border color to blue */
+            background-color: var(--dashboard-color, #007BFF);
+            border: 1px solid var(--dashboard-color, #007BFF);
         }
 
         .profile-container a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-container a.edit:hover {
+            background-color: var(--edit-color-hover, #218838);
+            border-color: var(--edit-color-hover, #218838);
+        }
+
+        .profile-container a.dashboard:hover {
+            background-color: var(--dashboard-color-hover, #0056b3);
+            border-color: var(--dashboard-color-hover, #0056b3);
         }
     </style>
 </head>
@@ -92,8 +102,8 @@ $userData = getUserData($user_id);
         <p><strong>Postal Code:</strong> <?php echo $userData['postal_code']; ?></p>
         <p><strong>Interest:</strong> <?php echo $userData['interest']; ?></p>
 
-        <a href="organizer_dashboard.php" class="dashboard">Back to Dashboard</a>
         <a href="edit_profile.php" class="edit">Edit Profile</a>
+        <a href="organizer_dashboard.php" class="dashboard">Back to Dashboard</a>
     </div>
 </body>
 </html>

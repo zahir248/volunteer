@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="form-container">
-        <h1>Edit Profile | Organizer</h1>
+        <h1>Edit Profile</h1>
         <form action="edit_profile.php" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" value="<?php echo $userData['username']; ?>" required>

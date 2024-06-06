@@ -74,6 +74,7 @@ $fullname = $userData['fullname'];
         <h1>Welcome Organizer, <?php echo $fullname; ?></h1>
         <div style="margin-top: 20px; margin-bottom: 20px;"> <!-- Add margin-top to create space -->
             <a href="manage_events.php">Manage Events</a>
+            <a href="view_volunteers.php">View Volunteers</a> <!-- New button for View Volunteers -->
             <a href="messages.php">View Messages</a>
             <a href="profile.php">View Profile</a>
             <a href="#" class="logout" onclick="logout()">Logout</a> <!-- Add logout class to the logout button -->
