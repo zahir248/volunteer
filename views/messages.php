@@ -137,13 +137,18 @@ $messages_result = $stmt->get_result();
         <select name="event_id" id="event">
             <?php
             // Fetch events from the database
-            $event_sql = "SELECT event_id, title FROM event";
-            $event_result = $conn->query($event_sql);
-            
+            $event_sql = "SELECT event_id, title FROM event WHERE user_id = ?";
+            $event_stmt = $conn->prepare($event_sql);
+            $event_stmt->bind_param("i", $user_id);
+            $event_stmt->execute();
+            $event_result = $event_stmt->get_result();
+
             // Display each event as an option in the dropdown menu
             while ($event_row = $event_result->fetch_assoc()) {
                 echo "<option value='" . $event_row['event_id'] . "'>" . $event_row['title'] . "</option>";
             }
+
+            $event_stmt->close();
             ?>
         </select>
                 <button type="submit">Reply</button>
