@@ -109,7 +109,7 @@
         <h2>Volunteer Match</h2>
         <h3>Organizer</h3>
         <form action="../controllers/process_organizer_signin.php" method="POST">
-            <button class="back-button" onclick="window.history.back();">
+            <button class="back-button" onclick="window.location.href='../views/index.php';">
                 <i>&#8592;</i> <!-- Left arrow symbol -->
             </button>
             <label for="email">Email:</label>
@@ -121,7 +121,7 @@
             <button type="submit">Sign In</button>
         </form>
         <div class="links">
-            <a href="../views/forgot_password.php">Forgot password?</a>
+            <a href="../views/forgot_password_organizer.php">Forgot password?</a>
             <a href="../views/register.php">New member?</a>
         </div>
     </div>
