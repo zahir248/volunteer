@@ -66,21 +66,22 @@ $result = $stmt->get_result();
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the table */
-            margin-top: 20px; /* Add margin to the top of the table */
-        }
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the table */
+    margin-top: 20px; /* Add margin to the top of the table */
+    text-align: center; /* Center-align the content of the table */
+}
 
         table, th, td {
             border: 1px solid #ddd;
         }
 
         th, td {
-            padding: 8px;
-            text-align: left;
-        }
+    padding: 8px;
+    text-align: center; /* Center-align the content of table cells */
+}
 
         th {
             background-color: #d3d3d3; /* Grey */
@@ -167,43 +168,48 @@ $result = $stmt->get_result();
     </div>
     <h2>Manage Events</h2>
     <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Location</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Capacity</th>
-                <th>Event Category</th>
-                <th>Creation Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                                <td>{$row['title']}</td>
-                                <td>{$row['description']}</td>
-                                <td>{$row['location']}</td>
-                                <td>{$row['start_date']}</td>
-                                <td>{$row['end_date']}</td>
-                                <td>{$row['capacity']}</td>
-                                <td>{$row['event_category']}</td>
-                                <td>{$row['creation_date']}</td>
-                                <td class='action-buttons'>
-                                    <button class='edit-button' onclick=\"window.location.href='edit_event.php?id={$row['event_id']}'\">Edit</button>
-                                    <button class='delete-button' onclick=\"confirmDelete({$row['event_id']})\">Delete</button>
-                                </td>
-                              </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='9'>No events found</td></tr>";
-                }
-            ?>
-        </tbody>
+    <thead>
+    <tr>
+        <th>No.</th> <!-- New column for event number -->
+        <th>Title</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Capacity</th>
+        <th>Event Category</th>
+        <th>Creation Date</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    <?php
+    $eventNumber = 1; // Initialize event number counter
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>{$eventNumber}</td> <!-- Display event number -->
+                    <td>{$row['title']}</td>
+                    <td>{$row['description']}</td>
+                    <td>{$row['location']}</td>
+                    <td>{$row['start_date']}</td>
+                    <td>{$row['end_date']}</td>
+                    <td>{$row['capacity']}</td>
+                    <td>{$row['event_category']}</td>
+                    <td>{$row['creation_date']}</td>
+                    <td class='action-buttons'>
+                        <button class='edit-button' onclick=\"window.location.href='edit_event.php?id={$row['event_id']}'\">Edit</button>
+                        <button class='delete-button' onclick=\"confirmDelete({$row['event_id']})\">Delete</button>
+                    </td>
+                </tr>";
+            $eventNumber++; // Increment event number counter
+        }
+    } else {
+        echo "<tr><td colspan='10'>No events found</td></tr>";
+    }
+    ?>
+</tbody>
+
     </table>
     <script>
         function confirmDelete(eventId) {

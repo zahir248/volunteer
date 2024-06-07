@@ -44,13 +44,45 @@
         }
 
         input[type="email"],
-        input[type="password"] {
+        .password-container {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input[type="password"],
+        .password-container input[type="text"] {
+            width: calc(100% - 40px); /* Subtract space for the icon */
+            padding-right: 40px; /* Make space for the icon */
+            border: none; /* Remove border to avoid double border issue */
+            outline: none; /* Remove outline */
+        }
+
+        .password-container input[type="password"]:focus,
+        .password-container input[type="text"]:focus {
+            border: none; /* Ensure no border on focus */
+            outline: none; /* Ensure no outline on focus */
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            border: none; /* Remove border */
+            background: none; /* Remove background */
+            padding: 0; /* Remove padding */
         }
 
         button[type="submit"] {
@@ -116,7 +148,12 @@
             <input type="email" id="email" name="email" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                    &#128065; <!-- Eye icon -->
+                </span>
+            </div>
 
             <button type="submit">Sign In</button>
         </form>
@@ -125,5 +162,17 @@
             <a href="../views/register.php">New member?</a>
         </div>
     </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var passwordFieldType = passwordField.getAttribute("type");
+            if (passwordFieldType === "password") {
+                passwordField.setAttribute("type", "text");
+            } else {
+                passwordField.setAttribute("type", "password");
+            }
+        }
+    </script>
 </body>
 </html>

@@ -128,17 +128,16 @@ $conn->close();
         }
 
         .cancel-button {
-    display: block; /* Change display to block to center the text */
-    width: fit-content; /* Make the button width fit the content */
-    margin: 0 auto; /* Center the button horizontally */
-    padding: 10px 20px;
-    background-color: #ff0000; /* Red background color */
-    color: #fff; /* White text color */
+    width: 100%; /* Set width to 100% to match the width of the parent container */
+    padding: 10px 0; /* Adjust padding to match the padding of the "Update Event" button */
+    background-color: #ff0000;
+    color: #fff;
     text-decoration: none;
     border-radius: 4px;
     margin-top: 10px;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
+
 
 .cancel-button:hover {
     background-color: #cc0000; /* Darker red on hover */

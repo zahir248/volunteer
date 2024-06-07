@@ -61,6 +61,28 @@
             resize: vertical;
         }
 
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input[type="password"],
+        .password-container input[type="text"] {
+            flex: 1;
+            padding-right: 40px; /* Make space for the icon */
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            margin-bottom: 17px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
         button[type="submit"] {
             background-color: #4CAF50;
             color: white;
@@ -75,7 +97,23 @@
         button[type="submit"]:hover {
             background-color: #45a049;
         }
-        
+
+        .back-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .back-button i {
+            color: #007bff;
+        }
+
+        .back-button:hover i {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -95,7 +133,12 @@
             <input type="email" id="email" name="email" required>
 
             <label for="password" class="required">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                    &#128065; <!-- Eye icon -->
+                </span>
+            </div>
 
             <label for="user_type" class="required">User Type:</label>
             <select id="user_type" name="user_type" required>
@@ -134,4 +177,17 @@
             <button type="submit">Register</button>
         </form>
     </div>
-</body
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var passwordFieldType = passwordField.getAttribute("type");
+            if (passwordFieldType === "password") {
+                passwordField.setAttribute("type", "text");
+            } else {
+                passwordField.setAttribute("type", "password");
+            }
+        }
+    </script>
+</body>
+</html>

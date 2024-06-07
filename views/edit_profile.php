@@ -98,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s ease;
+            margin-bottom: 20px;
         }
 
         .form-container input[type="submit"]:hover {
@@ -109,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
+            margin-top: 10px; /* Add margin to the top of the link */
         }
 
         .form-container a:hover {

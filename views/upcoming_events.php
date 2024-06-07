@@ -66,6 +66,7 @@ $result = $conn->query($sql);
             margin-bottom: 20px;
             background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the table */
             margin-top: 20px; /* Add margin to the top of the table */
+            text-align: center; /* Center align the text in the table */
         }
 
         table, th, td {
@@ -74,7 +75,6 @@ $result = $conn->query($sql);
 
         th, td {
             padding: 8px;
-            text-align: left;
         }
 
         th {
@@ -139,6 +139,7 @@ $result = $conn->query($sql);
 
         .button-container {
             display: flex;
+            justify-content: center; /* Center align buttons */
         }
 
         /* Adjust the margin between buttons if necessary */
@@ -156,6 +157,7 @@ $result = $conn->query($sql);
     <table>
         <thead>
             <tr>
+                <th>No.</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Location</th>
@@ -170,9 +172,11 @@ $result = $conn->query($sql);
         </thead>
         <tbody>
             <?php
+                $eventNumber = 1;
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <td>{$eventNumber}</td>
                                 <td>{$row['title']}</td>
                                 <td>{$row['description']}</td>
                                 <td>{$row['location']}</td>
@@ -189,9 +193,10 @@ $result = $conn->query($sql);
                                     </div>
                                 </td>
                               </tr>";
+                        $eventNumber++;
                     }
                 } else {
-                    echo "<tr><td colspan='10'>No events found</td></tr>";
+                    echo "<tr><td colspan='11'>No events found</td></tr>";
                 }
             ?>
         </tbody>

@@ -61,6 +61,12 @@ $messages_result = $stmt->get_result();
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .messages {
+            max-height: 310px; /* Set a fixed height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            margin-bottom: 20px;
+        }
+
         .message {
             margin-bottom: 10px;
             padding: 10px;
@@ -134,24 +140,24 @@ $messages_result = $stmt->get_result();
                 <textarea name="reply_content" placeholder="Type your reply here..." required></textarea>
 
                 <!-- Dropdown menu for selecting the event -->
-        <label for="event">Select Event:</label>
-        <select name="event_id" id="event">
-            <?php
-            // Fetch events from the database
-            $event_sql = "SELECT event_id, title FROM event WHERE user_id = ?";
-            $event_stmt = $conn->prepare($event_sql);
-            $event_stmt->bind_param("i", $user_id);
-            $event_stmt->execute();
-            $event_result = $event_stmt->get_result();
+                <label for="event">Select Event:</label>
+                <select name="event_id" id="event">
+                    <?php
+                    // Fetch events from the database
+                    $event_sql = "SELECT event_id, title FROM event WHERE user_id = ?";
+                    $event_stmt = $conn->prepare($event_sql);
+                    $event_stmt->bind_param("i", $user_id);
+                    $event_stmt->execute();
+                    $event_result = $event_stmt->get_result();
 
-            // Display each event as an option in the dropdown menu
-            while ($event_row = $event_result->fetch_assoc()) {
-                echo "<option value='" . $event_row['event_id'] . "'>" . $event_row['title'] . "</option>";
-            }
+                    // Display each event as an option in the dropdown menu
+                    while ($event_row = $event_result->fetch_assoc()) {
+                        echo "<option value='" . $event_row['event_id'] . "'>" . $event_row['title'] . "</option>";
+                    }
 
-            $event_stmt->close();
-            ?>
-        </select>
+                    $event_stmt->close();
+                    ?>
+                </select>
                 <button type="submit">Reply</button>
             </form>
         </div>
