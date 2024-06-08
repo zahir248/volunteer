@@ -1,14 +1,9 @@
 <?php
-require_once '../models/config.php';
-require_once '../session/session.php';
+require_once '../controllers/create_event_logic.php'; // Include the PHP file
 
-// Ensure the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../views/signin.php");
-    exit();
-}
+// Initialize a variable to hold the success message
+$success_message = "";
 
-// Check if the form is submitted
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -20,24 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $capacity = $_POST['capacity'];
     $event_category = $_POST['event_category'];
     
-    // Get the current date
-    $creation_date = date("Y-m-d");
-
-    // Insert the event into the database
-    $conn = db_connect();
-    $sql = "INSERT INTO event (user_id, title, description, location, start_date, end_date, capacity, event_category, creation_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isssssiss", $_SESSION['user_id'], $title, $description, $location, $start_date, $end_date, $capacity, $event_category, $creation_date);
-    if ($stmt->execute()) {
-        // If insertion is successful, redirect to the manage events page
-        header("Location: ../views/manage_events.php");
-        exit();
+    // Call the function to create event
+    if (createEvent($title, $description, $location, $start_date, $end_date, $capacity, $event_category)) {
+        // Set the success message
+        $success_message = "Event created successfully!";
+        // Execute JavaScript code to display the success message in an alert and then redirect
+        echo "<script>alert('$success_message'); window.location.href = '../views/manage_events.php';</script>";
+        exit(); // Stop executing PHP code
     } else {
-        // If insertion fails, display an error message
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // If creation fails, display an error message
+        echo "Error creating event.";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -46,77 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('../images/createevent.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="number"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            height: 100px;
-        }
-
-        input[type="submit"],
-        .cancel-button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-
-        .cancel-button {
-            background-color: #f44336; /* Red */
-        }
-
-        .cancel-button:hover {
-            background-color: #f44336;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/create_event.css"> <!-- Link to the CSS file -->
 </head>
 <body>
     <div class="container">

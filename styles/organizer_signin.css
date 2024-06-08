@@ -1,0 +1,128 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    background-image: url('/volunteer/images/organizersignin.jpg'); /* Background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add this */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="email"],
+.password-container {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    width: calc(100% - 40px); /* Subtract space for the icon */
+    padding-right: 40px; /* Make space for the icon */
+    border: none; /* Remove border to avoid double border issue */
+    outline: none; /* Remove outline */
+}
+
+.password-container input[type="password"]:focus,
+.password-container input[type="text"]:focus {
+    border: none; /* Ensure no border on focus */
+    outline: none; /* Ensure no outline on focus */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.back-button i {
+    color: #333;
+}
+
+.back-button:hover i {
+    color: #000;
+}
+
+.container .links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container .links a {
+    color: #4CAF50;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.container .links a:hover {
+    text-decoration: underline;
+}

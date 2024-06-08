@@ -1,0 +1,59 @@
+body {
+    background-image: url('../images/profileorga.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.profile-container h1 {
+    margin-bottom: 20px;
+}
+
+.profile-container p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.profile-container a {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 0px solid white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.profile-container a[href="edit_profile_volunteer.php"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.profile-container a[href="edit_profile_volunteer.php"]:hover {
+    background-color: #45a049;
+}
+
+.profile-container a[href="dashboard.php"] {
+    background-color: #007BFF;
+    color: white;
+}
+
+.profile-container a[href="dashboard.php"]:hover {
+    background-color: #0056b3;
+}

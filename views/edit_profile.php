@@ -34,94 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile | Organizer</title>
+    <link rel="stylesheet" href="../styles/edit_profile.css"> <!-- Link to the CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
-    <style>
-        body {
-            background-image: url('../images/editprofile.jpg'); /* Add the path to your image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background to improve readability */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 600px;
-            margin: 50px auto;
-            box-sizing: border-box;
-        }
-
-
-        .form-container h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .form-container input[type="text"],
-        .form-container input[type="password"],
-        .form-container input[type="email"],
-        .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .form-container input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .form-container input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        .form-container a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            margin-top: 10px; /* Add margin to the top of the link */
-        }
-
-        .form-container a:hover {
-            color: #45a049;
-        }
-
-        .error-message {
-            color: #ff0000;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
     <div class="form-container">

@@ -1,0 +1,50 @@
+body {
+    background-image: url('../images/dashboard.jpg'); /* Add the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Set the height to fill the viewport */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white; /* Set text color to white for better contrast */
+    font-family: Arial, sans-serif; /* Set font family */
+}
+
+.content {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px; /* Add margin to create space between content and buttons */
+}
+
+.content h1 {
+    margin-bottom: 50px;
+}
+
+.content a {
+    color: white; /* Set text color to white */
+    background-color: #007BFF; /* Set background color to blue */
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #007BFF; /* Set border color to blue */
+    border-radius: 5px;
+}
+
+.content a:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* Style for logout button */
+.content a.logout {
+    background-color: #dc3545; /* Set background color to red */
+    border-color: #dc3545; /* Set border color to red */
+}
+
+.content a.logout:hover {
+    background-color: #c82333; /* Darker shade of red on hover */
+}
